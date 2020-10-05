@@ -58,8 +58,9 @@ if __name__ == '__main__':
         df_out['File Size (GB)'] = df_out['File Size (Bytes)'].divide(divider, fill_value=0).round(2)	
 	
         df_out.drop('File Size (Bytes)', axis=1, inplace=True)
+	df_out.sort_values('Last Modified', ascending=False, inplace=True)
 	
-	    # write to csv
+	# write to csv
         df_out.to_csv('search_file_list.csv', index=None)
 
 print('done.')
